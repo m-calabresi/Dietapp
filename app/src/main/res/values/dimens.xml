@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="rtl_auto_mirror_scale" format="float" type="dimen">1</item>
+</resources>

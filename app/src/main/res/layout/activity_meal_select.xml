@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MealSelectActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/daily_meal_card_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintVertical_bias="0.0"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/meal_lunch_text"
+                style="@style/AppTheme.SubtitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_lunch"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/meal_lunch_list"
+                style="@style/AppTheme.ListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/meal_lunch_text"
+                app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
+
+            <Button
+                android:id="@+id/lunch_button"
+                style="@style/AppTheme.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_lunch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/meal_lunch_text"
+                app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
+
+            <ImageButton
+                android:id="@+id/edit_lunch_button"
+                style="@style/AppTheme.ImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/action_edit"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/meal_lunch_list" />
+
+            <TextView
+                android:id="@+id/meal_dinner_text"
+                style="@style/AppTheme.SubtitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_dinner"
+                android:visibility="invisible"
+                app:layout_constraintStart_toStartOf="@id/meal_lunch_text"
+                app:layout_constraintTop_toBottomOf="@id/lunch_button" />
+
+            <TextView
+                android:id="@+id/meal_dinner_list"
+                style="@style/AppTheme.ListTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/meal_dinner_text"
+                app:layout_constraintTop_toBottomOf="@id/meal_dinner_text"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/dinner_button"
+                style="@style/AppTheme.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_dinner"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/meal_dinner_text"
+                app:layout_constraintTop_toBottomOf="@id/meal_dinner_text" />
+
+            <ImageButton
+                android:id="@+id/edit_dinner_button"
+                style="@style/AppTheme.ImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/action_edit"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meal_dinner_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_extended_fab"
+        style="@style/AppTheme.ExtendedFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:stateListAnimator="@null"
+        android:text="@string/action_add"
+        android:visibility="gone"
+        app:icon="@drawable/ic_check_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daily_meal_card_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

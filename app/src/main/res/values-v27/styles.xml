@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:elevation">0dp</item>
+
+        <item name="android:windowLightStatusBar">@bool/lightStatusBar</item>
+        <item name="statusBarBackground">@color/statusBarColor</item>
+
+        <item name="android:windowLightNavigationBar">@bool/lightNavigationBar</item>
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
+
+        <item name="android:textCursorDrawable">@drawable/layout_text_cursor</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
+
+    <style name="AppTheme.SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/splashScreenColorPrimary</item>
+        <item name="colorPrimaryDark">@color/splashScreenColorPrimaryDark</item>
+        <item name="colorAccent">@color/splashScreenColorAccent</item>
+        <item name="android:windowBackground">@drawable/layout_launch_screen_background</item>
+
+        <item name="android:windowLightStatusBar">@bool/lightStatusBar</item>
+        <item name="statusBarBackground">@color/statusBarColor</item>
+
+        <item name="android:windowLightNavigationBar">@bool/lightNavigationBar</item>
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
+    </style>
+</resources>
