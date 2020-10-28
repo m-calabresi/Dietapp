@@ -14,9 +14,6 @@ import com.example.dietapp.R;
 import java.util.List;
 
 public class FoodCheckViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private static final int TYPE_FOOTER = 1;
-    private static final int TYPE_LIST_ELEMENT = 0;
-
     private final RecyclerViewClickListener itemListener;
 
     private final List<SelectableFood> foodDataSet;
@@ -38,12 +35,6 @@ public class FoodCheckViewAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public static class FooterLayoutViewHolder extends RecyclerView.ViewHolder {
-        public FooterLayoutViewHolder(View v) {
-            super(v);
-        }
-    }
-
     public FoodCheckViewAdapter(List<SelectableFood> foodDataSet, RecyclerViewClickListener itemListener) {
         this.foodDataSet = foodDataSet;
         this.itemListener = itemListener;
@@ -57,37 +48,22 @@ public class FoodCheckViewAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-
-        if (viewType == TYPE_FOOTER) {
-            View view = layoutInflater.inflate(R.layout.layout_footer, parent, false);
-            return new FooterLayoutViewHolder(view);
-        }
-
-        View view = layoutInflater.inflate(R.layout.layout_food_checkview, parent, false);
+        View view = layoutInflater.inflate(R.layout.layout_item_checkview, parent, false);
         return new FoodViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
-        if (holder.getItemViewType() == TYPE_LIST_ELEMENT) {
-            final FoodViewHolder viewHolder = (FoodViewHolder) holder;
-            final SelectableFood food = this.foodDataSet.get(position);
+        final FoodViewHolder viewHolder = (FoodViewHolder) holder;
+        final SelectableFood food = this.foodDataSet.get(position);
 
-            viewHolder.foodTextView.setText(food.getFood());
-            viewHolder.checkBox.setChecked(food.isSelected());
-            viewHolder.itemView.setOnClickListener(view -> viewHolder.checkBox.performClick());
-        }
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (position == foodDataSet.size())
-            return TYPE_FOOTER;
-        return TYPE_LIST_ELEMENT;
+        viewHolder.foodTextView.setText(food.getFood());
+        viewHolder.checkBox.setChecked(food.isSelected());
+        viewHolder.itemView.setOnClickListener(view -> viewHolder.checkBox.performClick());
     }
 
     @Override
     public int getItemCount() {
-        return this.foodDataSet.size() + 1;
+        return this.foodDataSet.size();
     }
 }

@@ -3,66 +3,69 @@
     <color name="ic_launcher_background">#FFFFFF</color>
 
     <color name="colorPrimary">#121212</color>
-    <color name="colorPrimaryDark">#121212</color>
-    <color name="legacyPrimaryDark">#121212</color>
-    <color name="colorAccent">#32de84</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
+    <color name="legacyPrimaryDark">@color/colorPrimary</color>
+    <color name="colorAccent">#b7f1cb</color>
     <color name="colorSecondary">@color/colorAccent</color>
 
-    <color name="lightGray">#646565</color>
-    <color name="mediumGray">#919191</color>
+    <color name="rippleColor">#646565</color> <!--> color for the ripple effect of clickable components <-->
+    <color name="accentedRippleColor">#e1faea</color> <!--> accented color for the ripple effect of clickable components <-->
+    <color name="colorActive">#272727</color> <!--> color of active text-icons <-->
+    <color name="colorActiveAlt">#deffffff</color> <!--> desaturated version of colorActive <-->
 
     <!--> SPLASH SCREEN COLORS <-->
-    <color name="splashScreenColorPrimary">#121212</color>
-    <color name="splashScreenColorPrimaryDark">#121212</color>
-    <color name="splashScreenColorAccent">#121212</color>
+
+    <color name="splashScreenColorPrimary">@color/colorPrimary</color>
+    <color name="splashScreenColorPrimaryDark">@color/colorPrimaryDark</color>
+    <color name="splashScreenColorAccent">@color/colorPrimary</color>
 
     <!--> NAVIGATION ELEMENTS COLORS <-->
+
     <bool name="lightNavigationBar">false</bool>
     <bool name="lightStatusBar">false</bool>
 
-    <color name="statusBarColor">#121212</color>
-    <color name="navigationBarColor">#121212</color>
+    <color name="statusBarColor">@color/colorPrimary</color>
+    <color name="navigationBarColor">@color/colorPrimary</color>
 
     <!--> ICON COLORS <-->
-    <color name="iconFillColorLight">@android:color/white</color>
-    <color name="iconFillColorDark">@color/mediumGray</color>
-    <color name="iconFillColorAlt">@color/colorAccent</color>
+
+    <color name="iconFillColorOnDark">@color/colorActive</color> <!--> color for an icon displayed on a dark surface (light theme) or on a light surface (dark theme) <-->
+    <color name="iconFillColorOnLight">@android:color/white</color> <!--> color for an icon displayed on a light surface (light theme) or on a dark surface (dark theme) <-->
+    <color name="iconFillColorOnLightAlt">@color/colorAccent</color> <!--> alternative color for an icon displayed on a light surface (light theme) or on a dark surface (dark theme) <-->
+    <color name="iconFillColorOnAccent">@color/colorActive</color> <!--> color for an icon displayed on an accent-colored surface (light theme) or on a dark/alternate accent -colored surface (dark theme)<-->
 
     <!--> TEXT VIEW COLORS <-->
+
     <color name="cursorColor">@color/colorAccent</color>
     <color name="boxStrokeColor">@color/colorAccent</color>
-    <color name="hintTextColor">@color/colorAccent</color>
-    <color name="textViewTextColor">@android:color/black</color>
+    <color name="boxBackgroundColor">@color/colorPrimary</color>
 
-    <color name="emptyTextViewTextColor">@color/lightGray</color>
+    <color name="emptyTextViewTextColor">@color/rippleColor</color>
 
     <!--> BUTTON COLORS <-->
-    <color name="fabIconColor">@android:color/white</color>
-    <color name="fabTextColor">@android:color/white</color>
+
+    <color name="fabTextColor">@color/colorActive</color>
     <color name="fabBackgroundColor">@color/colorAccent</color>
 
-    <color name="customButtonTextColor">@android:color/black</color>
+    <color name="customButtonTextColor">#deffffff</color>
     <color name="customButtonIconColor">@color/colorAccent</color>
 
-    <color name="outlinedButtonRippleColor">@color/lightGray</color>
-    <color name="outlinedButtonStrokeColor">@color/lightGray</color>
-    <color name="outlinedButtonTextColor">@android:color/black</color>
+    <color name="outlinedButtonRippleColor">@color/rippleColor</color>
+    <color name="outlinedButtonStrokeColor">@color/rippleColor</color>
+    <color name="outlinedButtonTextColor">@color/colorActiveAlt</color>
 
-    <color name="borderlessButtonRippleColor">@color/colorAccent</color>
+    <color name="borderlessButtonRippleColor">@color/accentedRippleColor</color>
     <color name="borderlessButtonTextColor">@color/colorAccent</color>
 
-    <color name="imageButtonBackgroundColor">@android:color/white</color>
+    <color name="imageButtonRippleColor">@color/rippleColor</color>
 
     <!--> CARD VIEW COLORS <-->
+
     <color name="cardViewTitleColor">@color/colorAccent</color>
-    <color name="cardViewSubtitleTextColor">@android:color/black</color>
-    <color name="cardViewListTextColor">@android:color/tab_indicator_text</color>
+    <color name="cardViewSubtitleTextColor">@color/colorActiveAlt</color>
+    <color name="cardViewListTextColor">@color/colorActiveAlt</color>
 
     <!--> ALERT DIALOG COLORS <-->
-    <color name="alertDialogColorPrimary">@color/colorPrimary</color>
-    <color name="alertDialogColorPrimaryDark">@color/colorPrimaryDark</color>
+
     <color name="alertDialogColorAccent">@color/colorAccent</color>
-    <color name="alertDialogTitleColor">@android:color/white</color>
-    <color name="alertDialogContentColor">@android:color/white</color>
-    <color name="alertDialogBackgroundColor">#3a3a3c</color>
 </resources>

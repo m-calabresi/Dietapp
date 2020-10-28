@@ -7,6 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MealSelectActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:menu="@menu/action_menu"
+            app:title="@string/title_select_food" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/daily_meal_card_view"
         android:layout_width="0dp"
@@ -15,10 +35,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintVertical_bias="0.0"
-        card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
-        card_view:layout_constraintTop_toTopOf="parent">
+        card_view:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -56,15 +75,18 @@
                 app:layout_constraintStart_toStartOf="@id/meal_lunch_text"
                 app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/edit_lunch_button"
                 style="@style/AppTheme.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/action_edit"
                 android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true"
+                app:icon="@drawable/ic_edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/meal_lunch_list" />
+                app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
 
             <TextView
                 android:id="@+id/meal_dinner_text"
@@ -99,13 +121,15 @@
                 app:layout_constraintStart_toStartOf="@id/meal_dinner_text"
                 app:layout_constraintTop_toBottomOf="@id/meal_dinner_text" />
 
-            <ImageButton
+
+            <Button
                 android:id="@+id/edit_dinner_button"
                 style="@style/AppTheme.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/action_edit"
                 android:visibility="gone"
+                app:icon="@drawable/ic_edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/meal_dinner_text" />
 
@@ -125,7 +149,7 @@
         android:stateListAnimator="@null"
         android:text="@string/action_add"
         android:visibility="gone"
-        app:icon="@drawable/ic_check_light"
+        app:icon="@drawable/ic_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

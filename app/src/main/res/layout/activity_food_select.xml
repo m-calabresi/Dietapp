@@ -6,28 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".FoodSelectActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/foods_recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_add_button" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/done_extended_fab"
-        style="@style/AppTheme.ExtendedFloatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="@string/action_done"
-        android:visibility="gone"
-        app:icon="@drawable/ic_check_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="Widget.MaterialComponents.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/action_menu"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/title_select_food" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <View
+        android:id="@+id/top_button_divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_layout" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/custom_add_button"
@@ -44,19 +50,26 @@
         android:textAlignment="viewStart"
         android:textColor="@color/customButtonTextColor"
         app:cornerRadius="0dp"
-        app:icon="@drawable/ic_add_light"
+        app:icon="@drawable/ic_add"
         app:iconTint="@color/customButtonIconColor"
-        app:layout_constraintBottom_toTopOf="@+id/foods_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/top_button_divider" />
 
     <View
-        android:id="@+id/top_divider"
+        android:id="@+id/bottom_button_divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/foods_recycler_view"
+        app:layout_constraintBottom_toBottomOf="@+id/custom_add_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/foods_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/custom_add_button" />

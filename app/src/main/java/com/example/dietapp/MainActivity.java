@@ -1,16 +1,19 @@
 package com.example.dietapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,15 +29,41 @@ import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int TODAY_NEW_REQUEST_CODE = 1;
-    public static final int EDIT_REQUEST_CODE = 2;
+    public static final int TYPE_ERROR = -1;
+    public static final int TYPE_TODAY_NEW = 1;
+    public static final int TYPE_EDIT = 2;
 
-    public static final String MAIN_ACTIVITY_REQUEST_CODE = "main_activity_request_code";
-    public static final String MAIN_ACTIVITY_CARD_POSITION = "main_activity_card_position";
+    public static final String EXTRA_REQUEST_TYPE = "com.example.dietapp.request_type";
+    public static final String EXTRA_CARD_POSITION = "com.example.diatapp.card_position";
 
     private RecyclerView recyclerView;
     private MealsCardViewAdapter adapter;
     private ConstraintLayout emptyViewLayout;
+
+    public final ActivityResultLauncher<Intent> mealSelectActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    final int itemPosition;
+                    final int requestType = Objects.requireNonNull(result.getData()).getIntExtra(EXTRA_REQUEST_TYPE, TYPE_ERROR);
+
+                    switch (requestType) {
+                        case TYPE_TODAY_NEW:
+                            itemPosition = adapter.getItemCount() - 1;
+                            adapter.notifyItemInserted(itemPosition);
+                            break;
+                        case TYPE_EDIT:
+                            itemPosition = adapter.getLastEditedItemPosition();
+                            adapter.notifyItemChanged(itemPosition);
+                            break;
+                        default:
+                            throw new NullPointerException("No valid result code, activity returned in an unexpected way");
+                    }
+                    adapter.notifyItemRangeChanged(itemPosition, 1);
+                    recyclerView.scrollToPosition(itemPosition);
+                    setupEmptyView();
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +81,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         final ExtendedFloatingActionButton todayButton = findViewById(R.id.add_today_extended_fab);
         todayButton.setOnClickListener(view -> {
             List<Meal> meals = SharedLiveDataRepository.getMealsList();
 
             if (meals.size() != 0 && meals.get(meals.size() - 1).getDate().equals(Date.today())) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.text_error_alert_title);
-                builder.setMessage(R.string.text_error_alert_message);
-                builder.setPositiveButton(R.string.action_ok, null);
-                builder.create().show();
+                final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.AppTheme_RoundedAlertDialog);
+                builder.setTitle(R.string.title_error_alert_message)
+                        .setMessage(R.string.text_error_alert_message)
+                        .setPositiveButton(R.string.action_ok, null)
+                        .create()
+                        .show();
             } else {
                 Intent intent = new Intent(view.getContext(), MealSelectActivity.class);
-                intent.putExtra(MAIN_ACTIVITY_REQUEST_CODE, TODAY_NEW_REQUEST_CODE);
-                startActivityForResult(intent, TODAY_NEW_REQUEST_CODE); // TODO replace this
+                intent.putExtra(EXTRA_REQUEST_TYPE, TYPE_TODAY_NEW);
+                mealSelectActivityResultLauncher.launch(intent);
             }
         });
 
@@ -93,37 +124,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        final int itemPosition;
-        final int itemScrollPosition;
-
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case TODAY_NEW_REQUEST_CODE:
-                    itemPosition = adapter.getLastMealPosition();
-                    itemScrollPosition = adapter.getItemCount() - 1;
-
-                    adapter.notifyItemInserted(itemPosition);
-                    break;
-                case EDIT_REQUEST_CODE:
-                    itemPosition = adapter.getLastEditedItemPosition();
-                    itemScrollPosition = adapter.getLastEditedItemPosition();
-
-                    adapter.notifyItemChanged(itemPosition);
-                    break;
-                default:
-                    throw new NullPointerException("No valid result code, activity returned in an unexpected way");
-            }
-
-            adapter.notifyItemRangeChanged(itemPosition, 1);
-            recyclerView.scrollToPosition(itemScrollPosition);
-            setupEmptyView();
-        }
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings_menu, menu);
         return true;
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             int itemPosition = this.toPositionIndex(SharedLiveDataRepository.Preferences.getThemePreference(this));
 
             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.AppTheme_RoundedAlertDialog);
-            builder.setTitle(R.string.text_theme_alert_title)
+            builder.setTitle(R.string.title_theme_alert)
                     .setSingleChoiceItems(R.array.themes_array, itemPosition, (dialog, which) -> {
                         int mode = this.toThemeIndex(which);
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupEmptyView() {
-        if (adapter.getMealsCount() == 0) {
+        if (adapter.getItemCount() == 0) {
             recyclerView.setVisibility(View.GONE);
             emptyViewLayout.setVisibility(View.VISIBLE);
         } else {

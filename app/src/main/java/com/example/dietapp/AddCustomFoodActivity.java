@@ -1,39 +1,36 @@
 package com.example.dietapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
 public class AddCustomFoodActivity extends AppCompatActivity {
-    private EditText foodEditText;
+    private EditText foodEditText; // TODO  fix written content deleted, on theme changed
     private TextInputLayout foodTextInputLayout;
-    private ExtendedFloatingActionButton extendedFloatingActionButton;
+    private Button doneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_custom_food);
 
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
-
-        extendedFloatingActionButton = findViewById(R.id.insert_extended_fab);
-        extendedFloatingActionButton.setEnabled(false);
-        if (extendedFloatingActionButton.isExtended())
-            extendedFloatingActionButton.shrink();
+        final Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         foodTextInputLayout = findViewById(R.id.food_text_input);
 
@@ -46,13 +43,13 @@ public class AddCustomFoodActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                boolean isTextInputFilled = s.length() > 0;
+                final boolean isTextInputFilled = s.length() > 0;
 
                 if (isTextInputFilled) {
-                    if (extendedFloatingActionButton.getVisibility() != View.VISIBLE)
-                        extendedFloatingActionButton.show();
-                } else if (extendedFloatingActionButton.getVisibility() == View.VISIBLE)
-                    extendedFloatingActionButton.hide();
+                    if (doneButton.getVisibility() != View.VISIBLE)
+                        doneButton.setVisibility(View.VISIBLE);
+                } else if (doneButton.getVisibility() == View.VISIBLE)
+                    doneButton.setVisibility(View.GONE);
             }
 
             @Override
@@ -61,15 +58,24 @@ public class AddCustomFoodActivity extends AppCompatActivity {
             }
         });
 
-        extendedFloatingActionButton.setOnClickListener(view -> {
-            String result = foodEditText.getText().toString();
+        showSoftInput(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_menu, menu);
+
+        final ConstraintLayout constraintLayout = (ConstraintLayout) menu.findItem(R.id.item_action_button).getActionView();
+        doneButton = constraintLayout.findViewById(R.id.action_button);
+        doneButton.setText(R.string.action_done);
+        doneButton.setOnClickListener(view -> {
+            String customFood = foodEditText.getText().toString();
             Intent intent = new Intent();
-            intent.putExtra(FoodSelectActivity.ADD_ACTIVITY_RESULT_NAME, result);
-            setResult(Activity.RESULT_OK, intent);
+            intent.putExtra(FoodSelectActivity.EXTRA_CUSTOM_FOOD, customFood);
+            setResult(RESULT_OK, intent);
             finish();
         });
-
-        showSoftInput(true);
+        return true;
     }
 
     @Override
@@ -120,6 +126,6 @@ public class AddCustomFoodActivity extends AppCompatActivity {
 
     private void onBackActionPerformed() {
         Intent intent = new Intent();
-        this.setResult(Activity.RESULT_CANCELED, intent);
+        this.setResult(RESULT_CANCELED, intent);
     }
 }
