@@ -1,16 +1,16 @@
-package com.example.dietapp.food;
+package com.example.dietapp.model;
 
 public class SelectableFood {
-    private final String food;
+    private final String name;
     private boolean selected;
 
-    public SelectableFood(String food, boolean selected) {
-        this.food = food;
+    public SelectableFood(String name, boolean selected) {
+        this.name = name;
         this.selected = selected;
     }
 
-    public String getFood() {
-        return this.food;
+    public String getName() {
+        return this.name;
     }
 
     public boolean isSelected() {

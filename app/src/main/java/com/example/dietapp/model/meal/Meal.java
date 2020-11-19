@@ -1,4 +1,4 @@
-package com.example.dietapp.meal;
+package com.example.dietapp.model.meal;
 
 import androidx.annotation.NonNull;
 
@@ -18,22 +18,22 @@ public class Meal {
     }
 
     public Date getDate() {
-        return date;
+        return this.date;
     }
 
     public List<String> getDinnerFoods() {
-        return dinnerFoods;
+        return this.dinnerFoods;
     }
 
     public List<String> getLunchFoods() {
-        return lunchFoods;
+        return this.lunchFoods;
     }
 
-    public void setLunchFoods(List<String> lunchFoods) {
+    void setLunchFoods(List<String> lunchFoods) {
         this.lunchFoods = lunchFoods;
     }
 
-    public void setDinnerFoods(List<String> dinnerFoods) {
+    void setDinnerFoods(List<String> dinnerFoods) {
         this.dinnerFoods = dinnerFoods;
     }
 

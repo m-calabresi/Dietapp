@@ -1,5 +1,3 @@
-# Dietapp
+# Dietapp v 2.0
 
 Keep track of daily meals.
-
-## Version 1.1

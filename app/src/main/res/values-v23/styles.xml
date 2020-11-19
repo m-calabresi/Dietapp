@@ -19,7 +19,7 @@
         <item name="colorPrimary">@color/splashScreenColorPrimary</item>
         <item name="colorPrimaryDark">@color/splashScreenColorPrimaryDark</item>
         <item name="colorAccent">@color/splashScreenColorAccent</item>
-        <item name="android:windowBackground">@drawable/layout_launch_screen_background</item>
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
 
         <item name="android:windowLightStatusBar">@bool/lightStatusBar</item>
         <item name="statusBarBackground">@color/statusBarColor</item>

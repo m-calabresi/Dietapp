@@ -1,4 +1,4 @@
-package com.example.dietapp.meal;
+package com.example.dietapp.model.meal;
 
 import androidx.annotation.NonNull;
 
@@ -28,6 +28,10 @@ public class Date {
 
         final String dateStr = day + SEPARATOR + month + SEPARATOR + year;
         return new Date(dateStr);
+    }
+
+    public boolean isToday() {
+        return this.equals(Date.today());
     }
 
     @Override

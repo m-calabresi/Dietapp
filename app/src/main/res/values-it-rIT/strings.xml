@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_done">Fatto</string>
+    <string name="action_custom_insert">Personalizzato</string>
+    <string name="action_edit">Modifica</string>
+    <string name="action_add_today_meal">Oggi</string>
+    <string name="action_add">Aggiungi</string>
+    <string name="action_select_theme">Tema</string>
+    <string name="action_update">Aggiorna</string>
+    <string name="title_add_food">Aggiungi cibo</string>
+    <string name="title_select_food">Scegli cibo</string>
+    <string name="title_error_alert_message">Impossibile aggiungere pasti</string>
+    <string name="title_theme_alert">Scegli tema</string>
+    <string name="text_lunch">Pranzo</string>
+    <string name="text_dinner">Cena</string>
+    <string name="text_empty_view">Nessun dato presente</string>
+    <string name="text_error_alert_message">Hai già aggiunto i tuoi pasti per oggi.</string>
+    <string name="array_item_light">Chiaro</string>
+    <string name="array_item_dark">Scuro</string>
+    <string name="array_item_system_default">Predefinito di sistema</string>
+    <string name="text_item_edited">Pasto aggiornato</string>
+    <string name="text_new_item_added">Nuovo pasto aggiunto</string>
+</resources>

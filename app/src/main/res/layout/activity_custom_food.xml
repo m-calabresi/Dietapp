@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCustomFoodActivity">
+    tools:context=".ui.CustomFoodActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -20,15 +20,16 @@
             style="Widget.MaterialComponents.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back"
             app:menu="@menu/action_menu"
-            app:title="@string/title_add_food" />
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/title_select_food" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/food_text_input"
         style="@style/AppTheme.TextInputLayout"
+        android:theme="@style/AppTheme.TextInputOverlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -39,8 +40,10 @@
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
         <com.google.android.material.textfield.TextInputEditText
+            style="AppTheme.TextInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:imeOptions="flagNoExtractUi"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,23 +1,26 @@
 <resources>
-    <string name="app_name">Dietapp</string>
+    <string name="app_name" translatable="false">Dietapp</string>
 
     <string name="action_done">Done</string>
     <string name="action_custom_insert">Custom</string>
     <string name="action_edit">Edit</string>
     <string name="action_add_today_meal">Today</string>
-    <string name="action_ok">OK</string>
+    <string name="action_ok" translatable="false">OK</string>
     <string name="action_add">Add</string>
     <string name="action_select_theme">Theme</string>
+    <string name="action_update">Update</string>
 
     <string name="title_add_food">Add food</string>
     <string name="title_select_food">Select food</string>
-    <string name="title_error_alert_message">Unable to proceed</string>
+    <string name="title_error_alert_message">Unable to add meals</string>
     <string name="title_theme_alert">Choose theme</string>
 
     <string name="text_lunch">Lunch</string>
     <string name="text_dinner">Dinner</string>
     <string name="text_empty_view">Nothing to see here</string>
-    <string name="text_error_alert_message">Meals already added for today.</string>
+    <string name="text_error_alert_message">You already added your meals for today.</string>
+    <string name="text_new_item_added">New meal added</string>
+    <string name="text_item_edited">Meal updated</string>
 
     <string name="array_item_light">Light</string>
     <string name="array_item_dark">Dark</string>

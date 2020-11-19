@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/legacyPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorControlActivated">@color/cursorColor</item>
 
         <item name="android:elevation">0dp</item>
 
@@ -28,9 +29,16 @@
         <item name="boxStrokeColor">@color/boxStrokeColor</item>
         <item name="boxBackgroundColor">@color/boxBackgroundColor</item>
 
-        <item name="colorControlNormal">@color/cursorColor</item>
+        <item name="colorPrimary">@color/cursorColor</item>
+        <item name="colorAccent">@color/cursorColor</item>
+        <item name="android:colorControlNormal">@color/cursorColor</item>
+        <item name="android:colorControlActivated">@color/cursorColor</item>
+        <item name="android:colorControlHighlight">@color/cursorColor</item>
         <item name="colorControlActivated">@color/cursorColor</item>
-        <item name="colorControlHighlight">@color/cursorColor</item>
+    </style>
+
+    <style name="AppTheme.TextInputOverlay" parent="ThemeOverlay.AppCompat">
+        <item name="colorPrimary">@color/cursorColor</item>
     </style>
 
     <!--> TEXT VIEW THEMES <-->

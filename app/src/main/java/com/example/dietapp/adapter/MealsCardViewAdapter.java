@@ -1,6 +1,5 @@
-package com.example.dietapp.meal;
+package com.example.dietapp.adapter;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.dietapp.MainActivity;
-import com.example.dietapp.MealSelectActivity;
 import com.example.dietapp.R;
-import com.example.dietapp.data.SharedLiveDataRepository;
+import com.example.dietapp.model.meal.Meal;
+import com.example.dietapp.ui.RecyclerViewClickListener;
+import com.example.dietapp.viewmodel.livedata.MutableListLiveData;
 
 public class MealsCardViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private int lastEditedItemIndex;
+    private final MutableListLiveData<Meal> meals;
+    private final RecyclerViewClickListener itemView;
 
     public static class MealsViewHolder extends RecyclerView.ViewHolder {
         private final TextView dateTextView;
@@ -33,15 +33,16 @@ public class MealsCardViewAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public MealsCardViewAdapter() {
+    public MealsCardViewAdapter(MutableListLiveData<Meal> meals, RecyclerViewClickListener itemView) {
         super();
-        this.lastEditedItemIndex = -1;
+        this.meals = meals;
+        this.itemView = itemView;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         final View cardView = layoutInflater.inflate(R.layout.layout_item_cardview, parent, false);
         return new MealsViewHolder(cardView);
     }
@@ -49,28 +50,17 @@ public class MealsCardViewAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final MealsViewHolder viewHolder = (MealsViewHolder) holder;
-        final Meal meal = SharedLiveDataRepository.getMealsList().get(position);
+        final Meal meal = this.meals.get(position);
         final String dateString = meal.getDate().toString();
 
         viewHolder.dateTextView.setText(dateString);
         viewHolder.lunchListTextView.setText(meal.getLunchFoods().toString());
         viewHolder.dinnerListTextView.setText(meal.getDinnerFoods().toString());
-        viewHolder.editButton.setOnClickListener(view -> {
-            this.lastEditedItemIndex = position;
-
-            Intent intent = new Intent(view.getContext(), MealSelectActivity.class);
-            intent.putExtra(MainActivity.EXTRA_REQUEST_TYPE, MainActivity.TYPE_EDIT);
-            intent.putExtra(MainActivity.EXTRA_CARD_POSITION, position);
-            ((MainActivity) view.getContext()).mealSelectActivityResultLauncher.launch(intent);
-        });
+        viewHolder.editButton.setOnClickListener(view -> this.itemView.recyclerViewItemClicked(position));
     }
 
     @Override
     public int getItemCount() {
-        return SharedLiveDataRepository.getMealsList().size();
-    }
-
-    public int getLastEditedItemPosition() {
-        return this.lastEditedItemIndex;
+        return this.meals.size();
     }
 }
