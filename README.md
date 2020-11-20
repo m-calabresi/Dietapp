@@ -15,11 +15,11 @@ From API 21 (Android 5.0 Marshmellow) up to API 30 (Android 11)
 ---
 
 <p float="center">
-  <div style="width: 1440px; height: 3040px;">
-  <img src="app/screenshots/Screen_1.png" width="40%" height="40%" align="left"/>
+  <div style="width: 1440px; height: 3040px;" align="left">
+  <img src="app/screenshots/Screen_1.png" width="40%" height="40%"/>
   </div>
-  <div style="width: 1440px; height: 3040px;">
-  <img src="app/screenshots/Screen_2.png" width="40%" height="40%" align="left"/>
+  <div style="width: 1440px; height: 3040px;" align="right">
+  <img src="app/screenshots/Screen_2.png" width="40%" height="40%"/>
   </div>
 </p>
 
