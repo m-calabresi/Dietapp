@@ -3,8 +3,12 @@
   <img src="app/screenshots/Screen_0.png" width="200" height="200"/>
 </p>
 
+## Supported Versions
+From API 21 (Android 5.0 Marshmellow) up to API 30 (Android 11)
+
 ## Features
 * Model View ViewModel (MVVM) paradigm
+* Custom ```MutableLiveData``` implementation
 * Native dark theme support
 * Multi-language support (IT - EN)
 
