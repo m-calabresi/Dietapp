@@ -1,9 +1,10 @@
-# Dietapp v 2.0
-<p float="center">
-  <div style="width: 1435px; height: 1435px;">
-    <img src="app/screenshots/Screen_0.png" width="15%" height="15%" align="center"/>
-  </div>
+<p>
+<div style="width: 1435px; height: 1435px;">
+  <img src="app/screenshots/Screen_0.png" width="15%" height="15%" align="center"/>
+</div>
 </p>
+
+# Dietapp v 2.0
 
 ## Supported Versions
 From API 21 (Android 5.0 Marshmellow) up to API 30 (Android 11)
