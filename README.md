@@ -28,6 +28,6 @@ From API 21 (Android 5.0 Marshmellow) up to API 30 (Android 11)
   <img src="app/screenshots/Screen_3.png" width="40%" height="40%" align="left"/>
   </div>
   <div style="width: 1440px; height: 3040px;">
-  <img src="app/screenshots/Screen_4.png" width="40%" height="40%" align="left"/>
+  <img src="app/screenshots/Screen_4.png" width="40%" height="40%" align="right"/>
   </div>
 </p>
