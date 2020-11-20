@@ -3,7 +3,6 @@
   <img src="app/screenshots/Screen_0.png" width="200" height="200"/>
 </p>
 
----
 ## Features
 * Model View ViewModel (MVVM) paradigm
 * Native dark theme support
