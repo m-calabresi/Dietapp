@@ -1,6 +1,8 @@
 # Dietapp v 2.0
-<p align="center">
-  <img src="app/screenshots/Screen_0.png" width="200" height="200"/>
+<p float="center">
+  <div style="width: 1435px; height: 1435px;">
+    <img src="app/screenshots/Screen_0.png" width="15%" height="15%"/>
+  </div>
 </p>
 
 ## Supported Versions
