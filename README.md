@@ -1,7 +1,7 @@
 # Dietapp v 2.0
 <p float="center">
   <div style="width: 1435px; height: 1435px;">
-    <img src="app/screenshots/Screen_0.png" width="15%" height="15%"/>
+    <img src="app/screenshots/Screen_0.png" width="15%" height="15%" align="center"/>
   </div>
 </p>
 
