@@ -7,7 +7,6 @@
     <string name="action_add">Aggiungi</string>
     <string name="action_select_theme">Tema</string>
     <string name="action_update">Aggiorna</string>
-    <string name="title_add_food">Aggiungi cibo</string>
     <string name="title_select_food">Scegli cibo</string>
     <string name="title_error_alert_message">Impossibile aggiungere pasti</string>
     <string name="title_theme_alert">Scegli tema</string>
@@ -20,4 +19,5 @@
     <string name="array_item_system_default">Predefinito di sistema</string>
     <string name="text_item_edited">Pasto aggiornato</string>
     <string name="text_new_item_added">Nuovo pasto aggiunto</string>
+    <string name="empty_image_desctiption">Nessun pasto presente</string>
 </resources>

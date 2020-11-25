@@ -68,4 +68,9 @@
     <!--> ALERT DIALOG COLORS <-->
 
     <color name="alertDialogColorAccent">@color/colorAccent</color>
+
+    <!--> CHIP COLORS <-->
+    <color name="chipStrokeColor">@color/customButtonTextColor</color>
+    <color name="chipBackgroundColor">@color/colorPrimary</color>
+    <color name="chipTextColor">@color/colorActiveAlt</color>
 </resources>

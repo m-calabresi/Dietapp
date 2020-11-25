@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.dietapp">
+    package="com.android.dietapp">
 
     <application
         android:allowBackup="true"
-        android:name="com.example.dietapp.ApplicationContext"
+        android:name="com.android.dietapp.ApplicationContext"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.android.dietapp.ui.MainActivity"
             android:theme="@style/AppTheme.SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MealSelectActivity" />
-        <activity android:name=".ui.CustomFoodActivity" />
-        <activity android:name=".ui.FoodSelectActivity" />
+        <activity android:name="com.android.dietapp.ui.MealSelectActivity" />
+        <activity android:name="com.android.dietapp.ui.CustomFoodActivity" />
+        <activity android:name="com.android.dietapp.ui.FoodSelectActivity" />
     </application>
 
 </manifest>

@@ -9,12 +9,15 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/daily_meal_card_view"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
@@ -22,7 +25,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -37,7 +40,7 @@
                 card_view:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/meal_lunch_text"
+                android:id="@+id/lunch_text_view"
                 style="@style/AppTheme.SubtitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,48 +49,49 @@
                 card_view:layout_constraintStart_toStartOf="@+id/meal_date_text_view"
                 card_view:layout_constraintTop_toBottomOf="@+id/meal_date_text_view" />
 
-            <TextView
-                android:id="@+id/meal_lunch_list"
-                style="@style/AppTheme.ListTextView"
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/lunch_scroll_view"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                card_view:layout_constraintStart_toStartOf="@+id/meal_date_text_view"
-                card_view:layout_constraintTop_toBottomOf="@+id/meal_lunch_text" />
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lunch_text_view">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/lunch_chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
 
             <TextView
-                android:id="@+id/meal_dinner_text"
+                android:id="@+id/dinner_text_view"
                 style="@style/AppTheme.SubtitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/text_dinner"
                 card_view:layout_constraintStart_toStartOf="@+id/meal_date_text_view"
-                card_view:layout_constraintTop_toBottomOf="@+id/meal_lunch_list" />
+                card_view:layout_constraintTop_toBottomOf="@+id/lunch_scroll_view" />
 
-            <TextView
-                android:id="@+id/meal_dinner_list"
-                style="@style/AppTheme.ListTextView"
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/dinner_scroll_view"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="16dp"
+                android:scrollbars="none"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintVertical_bias="0.0"
-                card_view:layout_constraintStart_toStartOf="@+id/meal_date_text_view"
-                card_view:layout_constraintTop_toBottomOf="@+id/meal_dinner_text" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dinner_text_view">
 
-            <Button
-                android:id="@+id/meal_edit_button"
-                style="@style/AppTheme.BorderlessButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/action_edit"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/dinner_chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

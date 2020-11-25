@@ -13,6 +13,8 @@
 
         <item name="android:textCursorDrawable">@drawable/layout_text_cursor</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
+
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
     <!--> SPLASH SCREEN THEME <-->
@@ -77,6 +79,8 @@
         <item name="iconTint">@color/iconFillColorOnLightAlt</item>
         <item name="rippleColor">@color/outlinedButtonRippleColor</item>
         <item name="strokeColor">@color/outlinedButtonStrokeColor</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
     </style>
 
     <style name="AppTheme.BorderlessButton" parent="Widget.MaterialComponents.Button.TextButton">
@@ -116,5 +120,16 @@
         <item name="colorAccent">@color/alertDialogColorAccent</item>
         <item name="cornerSize">10dp</item>
         <item name="android:dialogCornerRadius" tools:targetApi="p">10dp</item>
+    </style>
+
+    <!--> CHIP THEME <-->
+
+    <style name="AppTheme.Chip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="elevation">0dp</item>
+        <item name="chipStrokeColor">@color/chipStrokeColor</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipBackgroundColor">@color/chipBackgroundColor</item>
+        <item name="android:textColor">@color/chipTextColor</item>
     </style>
 </resources>

@@ -22,13 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:menu="@menu/action_menu"
             app:title="@string/title_select_food" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/daily_meal_card_view"
+        android:id="@+id/meals_card_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -39,101 +38,118 @@
         card_view:layout_constraintStart_toStartOf="parent"
         card_view:layout_constraintTop_toBottomOf="@id/app_bar_layout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/meal_lunch_text"
+                android:id="@+id/lunch_text_view"
                 style="@style/AppTheme.SubtitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/text_lunch"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/meal_lunch_list"
-                style="@style/AppTheme.ListTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@+id/meal_lunch_text"
-                app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
-
-            <Button
-                android:id="@+id/lunch_button"
-                style="@style/AppTheme.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/text_lunch"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/meal_lunch_text"
-                app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
-
-            <Button
-                android:id="@+id/edit_lunch_button"
-                style="@style/AppTheme.ImageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/action_edit"
-                android:visibility="gone"
-                android:clickable="true"
-                android:focusable="true"
-                app:icon="@drawable/ic_edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_lunch_text" />
-
-            <TextView
-                android:id="@+id/meal_dinner_text"
-                style="@style/AppTheme.SubtitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/text_dinner"
-                android:visibility="invisible"
-                app:layout_constraintStart_toStartOf="@id/meal_lunch_text"
-                app:layout_constraintTop_toBottomOf="@id/lunch_button" />
+                android:text="@string/text_lunch" />
 
-            <TextView
-                android:id="@+id/meal_dinner_list"
-                style="@style/AppTheme.ListTextView"
-                android:layout_width="wrap_content"
+            <!--> lunch group <-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lunch_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@id/meal_dinner_text"
-                app:layout_constraintTop_toBottomOf="@id/meal_dinner_text"
-                app:layout_constraintVertical_bias="0.0" />
+                android:layout_marginBottom="8dp">
 
-            <Button
-                android:id="@+id/dinner_button"
-                style="@style/AppTheme.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/text_dinner"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/meal_dinner_text"
-                app:layout_constraintTop_toBottomOf="@id/meal_dinner_text" />
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/lunch_chip_group"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/edit_lunch_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <Button
+                    android:id="@+id/edit_lunch_button"
+                    style="@style/AppTheme.ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/action_edit"
+                    android:focusable="true"
+                    app:icon="@drawable/ic_edit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/edit_dinner_button"
-                style="@style/AppTheme.ImageButton"
+                <Button
+                    android:id="@+id/lunch_button"
+                    style="@style/AppTheme.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/action_add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/dinner_text_view"
+                style="@style/AppTheme.SubtitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/action_edit"
-                android:visibility="gone"
-                app:icon="@drawable/ic_edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/meal_dinner_text" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_dinner" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dinner_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/dinner_chip_group"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/edit_dinner_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/edit_dinner_button"
+                    style="@style/AppTheme.ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/action_edit"
+                    app:icon="@drawable/ic_edit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/dinner_button"
+                    style="@style/AppTheme.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/action_add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -147,11 +163,10 @@
         android:clickable="true"
         android:focusable="true"
         android:stateListAnimator="@null"
-        android:visibility="gone"
         app:icon="@drawable/ic_check"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daily_meal_card_view" />
+        app:layout_constraintTop_toBottomOf="@+id/meals_card_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

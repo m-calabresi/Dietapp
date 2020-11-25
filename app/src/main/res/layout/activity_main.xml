@@ -20,7 +20,6 @@
             style="Widget.MaterialComponents.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/action_menu"
             app:title="@string/app_name" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -49,7 +48,7 @@
             android:id="@+id/empty_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/empty_image_desctiption"
             app:layout_constraintBottom_toTopOf="@id/empty_text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +60,8 @@
             style="@style/AppTheme.EmptyTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_empty_view"
             android:layout_marginTop="8dp"
+            android:text="@string/text_empty_view"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
