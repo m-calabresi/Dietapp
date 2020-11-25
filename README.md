@@ -1,5 +1,5 @@
 
-# Dietapp v 2.0
+# Dietapp v 2.1
 
 <p align="center">
 <div style="width: 1435px; height: 1435px;">
