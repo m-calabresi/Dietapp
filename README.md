@@ -8,7 +8,8 @@
 </p>
 
 ## Download
-Download apk here
+Download apk [here](https://github.com/m-calabresi/Dietapp/raw/master/app/release/Dietapp.apk)
+
 SHA256: AB4266859523F28926ED29FF3BC82C23FEF09F56E915ECBB3326F6BEABC50AF5
 
 ## Supported Versions
