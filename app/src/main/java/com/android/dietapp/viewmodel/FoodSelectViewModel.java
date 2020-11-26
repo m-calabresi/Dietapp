@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class FoodSelectViewModel extends ViewModel {
     @NonNull
-    public static final String EXTRA_CUSTOM_FOOD = "com.example.dietapp.custom_food";
+    public static final String EXTRA_CUSTOM_FOOD = "com.android.dietapp.custom_food";
     private int requestType;
 
     private final Model model;

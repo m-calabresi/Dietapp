@@ -20,7 +20,7 @@ public class Utils {
     }
 
     @SuppressWarnings("SameParameterValue")
-    private static void setMarginStart(@NonNull final  View view, final int dp) {
+    private static void setMarginStart(@NonNull final View view, final int dp) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             final ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
             final int realDp = toDp(view.getContext(), dp);

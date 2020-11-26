@@ -16,7 +16,7 @@ public class MealSelectViewModel extends ViewModel {
     public static final int TYPE_ERROR = -1;
 
     @NonNull
-    public static final String EXTRA_REQUEST_TYPE = "com.example.dietapp.request_type";
+    public static final String EXTRA_REQUEST_TYPE = "com.android.dietapp.request_type";
 
     private final Model model;
     private final Cache cache;
