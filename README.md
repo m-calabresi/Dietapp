@@ -10,7 +10,7 @@
 ## Download
 Download apk [here](https://github.com/m-calabresi/Dietapp/raw/master/app/release/Dietapp.apk)
 
-SHA256: AB4266859523F28926ED29FF3BC82C23FEF09F56E915ECBB3326F6BEABC50AF5
+SHA256: ```AB4266859523F28926ED29FF3BC82C23FEF09F56E915ECBB3326F6BEABC50AF5```
 
 ## Supported Versions
 From API 21 (Android 5.0 Marshmallow) up to API 30 (Android 11)
